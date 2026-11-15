@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * Warm, plain and workmanlike: cream paper, deep slate ink, a safety-orange
+ * call to action and a pine green for "done / included" states.
+ */
+@theme {
+  --color-cream: #faf7f1;
+  --color-sand: #f2ece1;
+  --color-sand-deep: #e8dfd0;
+  --color-line: #e3dbcd;
+  --color-line-strong: #cfc4b2;
+
+  --color-ink: #14212a;
+  --color-ink-soft: #33434d;
+  --color-muted: #5b6a73;
+
+  --color-brand-50: #fdf2ea;
+  --color-brand-100: #fbe1cf;
+  --color-brand-200: #f6c2a0;
+  --color-brand-500: #de5a16;
+  --color-brand-600: #c2470f;
+  --color-brand-700: #a33b0c;
+  --color-brand-800: #7f2f0d;
+
+  --color-pine-50: #eaf3ef;
+  --color-pine-100: #d3e7de;
+  --color-pine-500: #2b7a5f;
+  --color-pine-600: #1f6650;
+  --color-pine-700: #184f3e;
+
+  --color-amber-soft: #fbefd5;
+  --color-amber-ink: #8a5a06;
+  --color-sky-soft: #e5eef8;
+  --color-sky-ink: #24538a;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(20 33 42 / 0.06), 0 4px 16px -6px rgb(20 33 42 / 0.1);
+  --shadow-float: 0 2px 4px rgb(20 33 42 / 0.06), 0 18px 40px -12px rgb(20 33 42 / 0.28);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-brand-100);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Subtle paper grid used behind hero product shots */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(20 33 42 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(20 33 42 / 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Hide scrollbars on horizontally scrolling product mocks, keep them scrollable */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
